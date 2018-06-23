@@ -66,7 +66,6 @@ class ModelEmbeddings(nn.Module):
         embedded = embedded.view(sentence_length*batch_size, max_word_length, -1) # sentence_length*batch_size, max_word_length, embedding
         embedded = embedded.transpose(1,2) # sentence_length*batch_size, embedding, max_word_length
         conv_out = self.cnn(embedded)
-        conv_out = torch.max(conv_out, dim=-1)[0]
         word_embed = self.highway(conv_out)
         word_embed = self.dropout(word_embed)
         word_embed = word_embed.view(sentence_length, batch_size, -1)

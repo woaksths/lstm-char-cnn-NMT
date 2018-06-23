@@ -21,8 +21,8 @@ class CNN(nn.Module):
         @params inputs -> (max_sentence_length, batch, max_word_length)
         @return out -> (max_sentence_length, batch, hidden) 
         '''
-
         conv_out = self.conv1d(inputs)
+        conv_out = torch.max(conv_out, dim=-1)[0]
         return conv_out
     
 
