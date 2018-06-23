@@ -161,7 +161,6 @@ class VocabEntry(object):
         ###         https://pytorch.org/docs/stable/tensors.html#torch.Tensor.contiguous
         ###         https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view
         word2char_idx= self.words2charindices(sents)
-#         print('word2char_idx',word2char_idx, type(word2char_idx))
         padded_sentence = pad_sents_char(word2char_idx, self.char_pad)
         padded_sentence= torch.FloatTensor(padded_sentence)
         padded_sentence = padded_sentence.transpose(0,1)

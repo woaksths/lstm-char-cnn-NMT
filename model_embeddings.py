@@ -63,20 +63,13 @@ class ModelEmbeddings(nn.Module):
         sentence_length = input.size(0)
         max_word_length = input.size(2)
         embedded = self.char_embedding(input) # sentence_length, batch_size, max_word_length
-        print('1 embedded', embedded.size())
         embedded = embedded.view(sentence_length*batch_size, max_word_length, -1) # sentence_length*batch_size, max_word_length, embedding
-        print('2 embedded', embedded.size())
         embedded = embedded.transpose(1,2) # sentence_length*batch_size, embedding, max_word_length
-        print('3 embedded', embedded.size())
-        conv_out = self.cnn(embedded) 
-        print('1. conv_out', conv_out.size())
+        conv_out = self.cnn(embedded)
         conv_out = torch.max(conv_out, dim=-1)[0]
-        print('2. maxpool conv_out', conv_out.size())
         word_embed = self.highway(conv_out)
-        print('3. word_embed',word_embed.size())
         word_embed = self.dropout(word_embed)
         word_embed = word_embed.view(sentence_length, batch_size, -1)
-        print('4. word_embed',word_embed.size())
         return word_embed
     
         ### END YOUR CODE

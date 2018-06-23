@@ -80,7 +80,7 @@ class NMT(nn.Module):
                                     each example in the input batch. Here b = batch size.
         """
         # Compute sentence lengths
-        source_lengths = [len(s) for s in source] # batch 만큼의 길이를 가짐. 
+        source_lengths = [len(s) for s in source] 
         
         # Convert list of lists into tensors
 

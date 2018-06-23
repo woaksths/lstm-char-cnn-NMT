@@ -8,3 +8,4 @@ build/
 model.bin
 model.bin.optim
 .DS_Store
+en_es_data/
