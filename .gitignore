@@ -1,0 +1,9 @@
+venv/
+env/
+__pycache__/
+.ipynb_checkpoints/
+eggs/
+.eggs/
+build/
+model.bin
+model.bin.optim

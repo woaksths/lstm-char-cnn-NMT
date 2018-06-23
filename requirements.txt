@@ -1,0 +1,10 @@
+scipy
+torch == 1.0.0
+numpy
+tqdm
+docopt
+nltk
+torchvision
+jupyter
+jupyterlab
+ipython==7.9
